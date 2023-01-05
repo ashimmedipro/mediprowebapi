@@ -1,0 +1,948 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71B4FD57-7F66-460B-AAA1-AD0FFA2D407F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>medipro.api.Medipro</RootNamespace>
+    <AssemblyName>medipro.api.Medipro</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.1.0.0\lib\net451\Microsoft.AspNetCore.Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.1.0.0\lib\net451\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Extensions.1.0.0\lib\net451\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.1.0.0\lib\net451\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.JsonPatch, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.JsonPatch.1.0.0\lib\netstandard1.1\Microsoft.AspNetCore.JsonPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Core.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Formatters.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Formatters.Json.1.0.0\lib\net451\Microsoft.AspNetCore.Mvc.Formatters.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.1.0.0\lib\net451\Microsoft.AspNetCore.Routing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.1.0.0\lib\net451\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.DotNet.InternalAbstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.InternalAbstractions.1.0.0\lib\net451\Microsoft.DotNet.InternalAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.1.0.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.1.0.0\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.ObjectPool.1.0.0\lib\net451\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.PlatformAbstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.PlatformAbstractions.1.0.0\lib\net451\Microsoft.Extensions.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.1.0.0\lib\netstandard1.1\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.0.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.NonGeneric, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.NonGeneric.4.0.1\lib\net46\System.Collections.NonGeneric.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.1.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.TypeConverter.4.1.0\lib\net462\System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.1.0\lib\net462\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.4.1.0\lib\net462\System.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.1.0\lib\net462\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Extensions.4.1.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.1.0\lib\net462\System.Runtime.InteropServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Serialization.Primitives.4.1.1\lib\net46\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.0.0\lib\netstandard1.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\NewController\AccountDocs\CardListController.cs" />
+    <Compile Include="Controllers\NewController\AccountDocs\Grcode1Controller.cs" />
+    <Compile Include="Controllers\NewController\AccountDocs\JornalVoucher\JbookJmasterLedgerController.cs" />
+    <Compile Include="Controllers\NewController\AccountDocs\JornalVoucher\VoucherEntryController.cs" />
+    <Compile Include="Controllers\NewController\AccountDocs\Opbal1Controller.cs" />
+    <Compile Include="Controllers\NewController\AccountDocs\PurchaseTermController.cs" />
+    <Compile Include="Controllers\NewController\AccountDocs\ReportAccount\StatementController.cs" />
+    <Compile Include="Controllers\NewController\AccountDocs\SalesAndOrderController.cs" />
+    <Compile Include="Controllers\NewController\AccountDocs\SalesmanController.cs" />
+    <Compile Include="Controllers\NewController\AccountDocs\sbcode1Controller.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\AdvanceandChangeSec\AdvanceClearController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\AdvanceandChangeSec\AdvanceClearReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\AdvanceandChangeSec\AdvanceReceiptController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\AdvanceandChangeSec\AdvanceReceiptPrintController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\AdvanceandChangeSec\AdvanceRegisterController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\AdvanceandChangeSec\ChangeClearController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\AdvanceandChangeSec\ChangeRegisterController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\AdvanceandChangeSec\CurrentChangeReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\BedSetupController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\Organization Member Master\MemberOrgController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\Organization Member Master\Member_SetupController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\Organization Member Master\OrganizationDeptSetupController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\Organization Member Master\SubMemberSetupController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\PatientInformationEditController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\RefererInsertController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\RefererPaySetup\ConsultantClassSetupController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\RefererPaySetup\ConsultantOpdDepartmentSetupController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\RefererPaySetup\RefererGroupnameSetupController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\RefererPaySetup\SpecialitySetupController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\ServiceMasterSetup\AddServicesInPanelController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\ServiceMasterSetup\SchemeDiscountCatalogueController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\ServicePanelController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\Catalogue\WardController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\DisctrictDetailController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\DueSection\CurrentDueReport\CurrentDueReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\DeathCertificateReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\DueClearController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\DueSection\PeriodicDueLogController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdRegistrationController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\BedBookedClearController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\BedBookingController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\BedRackListController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\BedTransactionController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\BedTransferReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\BedTransferController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DailyCensusReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DeathCertificateController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DepositController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DepositRefundController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DepositRefundPostLedgerController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DepositRefundReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DepositReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DepositSlipController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DischargeController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DischargeReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DischargeReportEntryController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DischargeSheetController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\DischargeSheetReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\IpdOpeningBalanceController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\IpdRegisterationSlipController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\IpdRegistrationRegisterController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\IpdSaveBillCancelController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\IpdTrialController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\PrintBillCopyController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\RefundSlipController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\RevertDepositRefundPostController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\IpdSection\RevertDischargePostController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\OpdBillingController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\OpdSection\BillingSupervisorSection\RevertOpdPostController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\OpdSection\ClaimCodeGenerateReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\OpdSection\DoctorAppointmentController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\OpdSection\GeneralBillingDueController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\OpdSection\OpdBillPrintByIdController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\OpdSection\OpdRegistrationController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\OpdSection\PrescriptionGenerateListController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\OpdSection\PrescriptionGenerationController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\OpdSection\PrintReceiptController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ReportSectionController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServGroupController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionReport\ConsultantPaymentReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionReport\ConsultantReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionReport\InvoiceWiseExpensesAnalysisController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionReport\PatientwiseCashDistributionController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionReport\RefererDistributionReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionReport\ServiceGroupwiseReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionSection\CashDistCstAddController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionSection\InvwiseExpBookController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionSection\RefererDistPostController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionSection\RefererDistPostType2Controller.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionSection\RefererPaymentReportController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionSection\ServiceWiseCashDistController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\CashDistributionServiceGrpWiseController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\ReferervsCashDistributeController.cs" />
+    <Compile Include="Controllers\NewController\BillingDocs\ServiceManagement\ServiceWiseSalesDistController.cs" />
+    <Compile Include="Controllers\NewController\BMLDocs\AccodeController.cs" />
+    <Compile Include="Controllers\NewController\BMLDocs\GrcodeController.cs" />
+    <Compile Include="Controllers\NewController\BMLDocs\OpbalController.cs" />
+    <Compile Include="Controllers\NewController\BMLDocs\SbCodeController.cs" />
+    <Compile Include="Controllers\NewController\ConfigsController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\AdjBookController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\AdjrecController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\CmpListixController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\CrnoteController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\DivisionController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\DrugixController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\fiscalyrController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\GenixController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\OpdBillController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\OpdrecController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\PretdetController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\PurcdetController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\PurchController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\PurretuController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\receiptController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\SalesController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\SalrecController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\SalretuController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\ServegroupController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\ServiceController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\StbalController.cs" />
+    <Compile Include="Controllers\NewController\DrugDocs\StopenController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\AdmissionRecordsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\AdmissionRecordsDetailController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\AnaesthesiaRecordController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\AnaesthesiaRecordDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\BillingSheetController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\BillingSheetDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\BSIChartController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\BSIChartDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\ChecklistController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\ChecklistDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\ClinicalProgressNoteController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\ConsentFormController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\ConsentFormDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\EmergencyFormController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\EmergencyFormDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\EvaluationFormController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\EvaluationFormDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\HistoryController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\HistoryDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\IntakeOutputController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\IntakeOutputDetailController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\LamaFormController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\LamaFormDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\ObservationSheetController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\ObservationSheetDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\OperationNoteController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\OperationNoteDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\pathologyController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\PathologyDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\TreatmentFormController.cs" />
+    <Compile Include="Controllers\NewController\EmergencyDocs\TreatmentFormDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EMRDocs\AdmissionFormDetailController.cs" />
+    <Compile Include="Controllers\NewController\EMRDocs\ChargeAndBillingSheetController.cs" />
+    <Compile Include="Controllers\NewController\EMRDocs\ClinicalProgressController.cs" />
+    <Compile Include="Controllers\NewController\EMRDocs\ConsentFormDetailController.cs" />
+    <Compile Include="Controllers\NewController\EMRDocs\EmergencyFormDetailController.cs" />
+    <Compile Include="Controllers\NewController\EMRDocs\EmrMasterController.cs" />
+    <Compile Include="Controllers\NewController\EMRDocs\HistoryExamFindingController.cs" />
+    <Compile Include="Controllers\NewController\EMRDocs\TprFormDetailController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\ChiefComplainController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\ChiefComplainDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\ClusterDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\CSIdetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\DentalInformationController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\DentalInformationDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\DermatologyController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\DermatologyDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\EyeDonationDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\EyeRegistrationController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\EyeRegMemberController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\FearAndPreceptionDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\KesUserMenuController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\LabExaminationDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\MedicalOcularHistoryDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\MedicinePlanController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\OcularExaminationController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\OcularExaminationDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\OcularInvestigationController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\OcularInvestigationDetailController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\OpdbillForPrescriptionController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\PastHistoryController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\PastHistoryDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\PivotTitleController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\QolSurveyDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\SmokingHistoryController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\SmokingHistoryDetailsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\SummaryResultsController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\VisionandRefractionController.cs" />
+    <Compile Include="Controllers\NewController\EyeDocs\VisionandRefractionDetailsController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\ChallanrecModify_Structure\ChallanModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\ChallanrecModify_Structure\ChallanModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\IpdSectionModifyStructure\IpdSectionModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\CommonEyeProblem.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\CommonEyeProblemModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\EyeDonationModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\EyeDontationModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\EyeRegistrationModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\EyeRegistrationModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\FearAndPreceptionModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\FearAndPreceptionModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\LabExamination.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\LabExaminationModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\MedicalOcularHistory.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\MedicalOcularHistoryController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\OcularExaminationModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\OcularExamModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\OcularInvModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\OcularInvModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PastEyeHistoryModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PastEyeHistoryModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\CommonEyeProblemPivotModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\CommonEyeProblemPivotModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\EyeDonationPivotModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\EyeDonationPivotModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\FearAndPreceptionPivotModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\FearAndPreceptionPivotModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\LabExaminationPivotModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\LabExaminationPivotModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\MedicalOcularHistoryPivotModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\MedicalOcularHistoryPivotModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\OcularExaminationPivotModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\OcularExaminationPivotModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\OcularInvDetailPivotModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\OcularInvestigationDetailPivotModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\PastEyeHistoryPivotModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\PastEyeHistoryPivotModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\QolSurveyPivot.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\QolSurveyPivotModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\SmokingHistoryPivotModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\SmokingHistoryPivotModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\VisionAndRefractionPivotModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\PivotModify\VisionAndRefractionPivotModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\QolSurveyModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\QolSurveyModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\SmokingHistoryModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\SmokingHistoryModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\VisionRefractionModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\KESModify_Structure\VisionRefractionModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\LedgerUpdate\LedgerUpdateController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\AdvanceClearModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\AdvanceClearModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\AdvanceClearReportModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\AdvanceClearReportModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\AdvanceReceiptModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\AdvanceReceiptModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\AdvanceReceiptPrintModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\AdvanceReceiptPrintModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\AdvanceRegisterReportModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\AdvanceRegisterReportModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\ChangeClearModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\ChangeClearModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\CurrentChangeReportModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\CurrentChangeReportModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\PeriodicChangeRegisterModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\AdvanceAndChangeSection\PeriodicChangeRegisterModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\DoctorsAppointmentModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\DoctorsAppointmentModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\DueSectionModify\CurrentDueReportModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\DueSectionModify\CurrentDueReportModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\DueSectionModify\DueClearModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\DueSectionModify\DueClearModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\OpdRegistrationModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\OpdRegistrationModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\PrintBillCopyModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\PrintBillCopyModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\PrintReceiptModify.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\OpdSectionModifyStructure\PrintReceiptModifyController.cs" />
+    <Compile Include="Controllers\NewController\ModifyStructure\ReportSecModify_Structure\ReportSectionMoidfyController.cs" />
+    <Compile Include="Controllers\NewController\Module_Tables\MemberController.cs" />
+    <Compile Include="Controllers\NewController\OnlineShopping\OnlineReorderController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\AccodeViewController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\AccodeAllController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\CashReceiptEntryController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\ChallanController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\CmplistVsSupController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\ConfigController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\CreditNoteEntryController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\DebitNoteEntryController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\DraftsController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\DrugGenixController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\EmpDeptController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\IcdCodeController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\IcdCodeGroupController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\InpatientController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\IpdRequistionController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\MasterStockNumberController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\MedicineInstructionController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\OpenStockEntryController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\PartDisc1Controller.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\PartDiscController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\PurchaseDetController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\PurchaseEntryController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\TempDrugGenixController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\templedger1Controller.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\AdjLedgerController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\AdjrecPurchController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\AdjVouchController.cs" />
+    <Compile Include="Controllers\NewController\RadiologyDocs\RadiologyTempDeleteController.cs" />
+    <Compile Include="Controllers\NewController\SeriesDocs\JbookController.cs" />
+    <Compile Include="Controllers\NewController\SeriesDocs\VrSeriesController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\CalendarController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\CreditNoteController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\CsPartyController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\DrnoteController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\DiscountNameController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\DrugDosesController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\NewDrugGroupController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\ExcelRosterController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\NarationController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\NepaliMonthController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\OrganizController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\DrugRackController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\DrugRackGroupController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\FirmsController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\ProductDivisionController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\SalesTemplateNameController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\SectorController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\StoreController.cs" />
+    <Compile Include="Controllers\NewController\PharmaDocs\TransporterController.cs" />
+    <Compile Include="Controllers\NewController\testController.cs" />
+    <Compile Include="Controllers\NewController\Userlist_CmplistController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DapperHelper.cs" />
+    <Compile Include="Models\NewModels\AccountDocs\CardList.cs" />
+    <Compile Include="Models\NewModels\AccountDocs\Grcode1.cs" />
+    <Compile Include="Models\NewModels\AccountDocs\JournalVoucher\JbookJmasterLedger.cs" />
+    <Compile Include="Models\NewModels\AccountDocs\JournalVoucher\VoucherEntry.cs" />
+    <Compile Include="Models\NewModels\AccountDocs\Opbal1.cs" />
+    <Compile Include="Models\NewModels\AccountDocs\PurchaseTerm.cs" />
+    <Compile Include="Models\NewModels\AccountDocs\ReportAccount\Statement\GroupStatement.cs" />
+    <Compile Include="Models\NewModels\AccountDocs\ReportAccount\Statement\SubGroupStatement.cs" />
+    <Compile Include="Models\NewModels\AccountDocs\SalesAndOrder.cs" />
+    <Compile Include="Models\NewModels\AccountDocs\Salesman.cs" />
+    <Compile Include="Models\NewModels\AccountDocs\sbcode1.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\BedSetup.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\OrganizationMemberMaster\MemberOrgSelect.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\OrganizationMemberMaster\MemberSetup.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\OrganizationMemberMaster\SubMember.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\PatientInformationEdit.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\RefererInsert.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\RefererPaySetup\ConsultantClassSetup.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\RefererPaySetup\ConsultantOpdDeptSetup.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\RefererPaySetup\RefererGroupnameSetup.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\RefererPaySetup\SpecialitySetup.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\ServiceMasterSetup\AddServicePanel.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\ServiceMasterSetup\SchemeDiscountCatalogue.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\ServicePanel.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\Catalogue\ward.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\DistrictDetail.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\DueClear.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\DueSection\CurrentDueReportSelect.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\DueSection\PeriodicDueLog.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IpdRegistration.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\BedBookedClear.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\BedBooking.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\BedRackList.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\BedTransaction.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\BedTransfer.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\BedTransferReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DailyCensusReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DeathCertificate.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DeathCertificateReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\Deposit.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DepositRefund.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DepositRefundPostLedger.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DepositRefundReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DepositReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DepositSlip.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\Discharge.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DischargeReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DischargeReportEntry.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DischargeSheet.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\DischargeSheetReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\IpdOpeningBalance.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\IpdRegistrationRegister.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\IpdRegistrationSlip.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\IpdSaveBillCancel.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\IpdTrial.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\PrintBillCopy.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\RefundSlip_dt.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\RevertDepositRefundPost.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\IPDSection\RevertDischargePost.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OpdBilling.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OpdBillPrintById.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\AdvancedandChangedSec\AdvanceClear.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\AdvancedandChangedSec\AdvanceClearReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\AdvancedandChangedSec\AdvanceReceipt.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\AdvancedandChangedSec\AdvanceReceiptPrint.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\AdvancedandChangedSec\AdvanceRegister.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\AdvancedandChangedSec\ChangeClear.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\AdvancedandChangedSec\CurrentChangereport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\Billing Supervisor Section\RevertOpdBill.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\ClaimCodeGenerateReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\DoctorAppointment.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\GenralBillingDue.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\OpdRegistration\OpdRegistration.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\PrescriptionGenerate.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\PrescriptionGenerateList.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\OPDSection\PrintReceipt.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ReportSection.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServGroup.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\CashDistbrutionReport\ConsultantPaymentReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\CashDistbrutionReport\ConsultantReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\CashDistbrutionReport\InvoiceWiseExpensesAnalysis.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\CashDistbrutionReport\PatientwiseCashDistribution.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\CashDistbrutionReport\RefererDistributionReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\CashDistbrutionReport\ServiceGroupwiseReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\CashDistCnstAdd.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\CashDistributionReport.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\CashDistServiceGrpWise.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\ClassDistributionSection.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\DeptWiseServiceDistribution_dt.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\InvWiseExpenseBook.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\RefererDistPost.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\RefererDistRibutionPostType2.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\RefererPaymentMethod.cs" />
+    <Compile Include="Models\NewModels\BillingDocs\ServiceManagement\RefererVsCashDistribution.cs" />
+    <Compile Include="Models\NewModels\BMLDocs\Accode.cs" />
+    <Compile Include="Models\NewModels\BMLDocs\Grcode.cs" />
+    <Compile Include="Models\NewModels\BMLDocs\Opbal.cs" />
+    <Compile Include="Models\NewModels\BMLDocs\SbCode.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\AdjBook.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Adjrec.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\CmpListix.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Crnote.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Division.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Drugix.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\fiscalyr.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Genix.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\OpdBill.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\opdrec.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Pretdet.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Purcdet.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Purch.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Purretu.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\receipt.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Sales.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Salrec.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Salretu.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Servegroup.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Service.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Stbal.cs" />
+    <Compile Include="Models\NewModels\DrugDocs\Stopen.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\AdmissionRecordDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\AdmissionRecords.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\AnaesthesiaRecord.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\AnaesthesiaRecordDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\BillingSheet.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\BIllingSheetDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\BSIChart.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\BSIChartDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\Checklist.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\ChecklistDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\ClinicalProgressNote.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\ConsentForm.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\ConsentFormDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\EmergencyForm.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\EmergencyFormDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\EvaluationForm.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\EvaluationFormDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\History.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\HistoryDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\IntakeOutput.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\IntakeOutputDetail.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\LamaForm.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\LamaFormDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\ObservationSheet.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\ObservationSheetDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\OperationNote.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\OperationNoteDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\Pathology.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\pathologyDetails.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\TreatmentForm.cs" />
+    <Compile Include="Models\NewModels\EmergencyDocs\TreatmentFormDetails.cs" />
+    <Compile Include="Models\NewModels\EMRDocs\AdmissionFormDetail.cs" />
+    <Compile Include="Models\NewModels\EMRDocs\ClinicalProgress.cs" />
+    <Compile Include="Models\NewModels\EMRDocs\ConsentFormDetail.cs" />
+    <Compile Include="Models\NewModels\EMRDocs\EmergencyFormDetails.cs" />
+    <Compile Include="Models\NewModels\EMRDocs\EmrMaster.cs" />
+    <Compile Include="Models\NewModels\EMRDocs\HistroyExamFinding.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\ChiefComplain.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\ChiefComplainDetails.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\Cluster.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\CSI.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\CSIdetails.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\DentalInformation.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\DentalInformationDetails.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\Dermatology.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\DermatologyDetails.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\EyeAll.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\EyeDonationDetails.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\EyeRegistration_dt.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\EyeRegMember.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\FearAndPreceptionDetails.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\KesUserMenu.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\SummaryResult\SummaryResults.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\LabExaminationDetails.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\MedicalOcularHistory_details.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\MedicinePlan.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\OcularExamination.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\OcularExaminationDetails.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\OcularInvestigation.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\OcularInvestigationDetail.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\OpdbillForPrescription.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PastHistory.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PastHistoryDetails.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PivotTitle\CommonEyeProblem.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PivotTitle\EyeDonationPivot.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PivotTitle\FearandPreception.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PivotTitle\LabExaminationDetailsPivot.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PivotTitle\MedicalOcularHistoryPivot_dt.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PivotTitle\OcularExaminationDetailPivot.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PivotTitle\OcularInvestigationDetailPivot.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PivotTitle\OQLSurvey_dt.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PivotTitle\PastEyeHistoryPivot.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PivotTitle\SmokingHistoryDetailsPivot.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\PivotTitle\VisionandRefractionDetailsPivot_dt.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\QolSurveyDetails.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\SmokingHistory.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\SmokingHistoryDetails.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\VisionandRefraction.cs" />
+    <Compile Include="Models\NewModels\EyeDocs\VisionandRefractionDetails.cs" />
+    <Compile Include="Models\NewModels\IpdSectionModifyStructure\DischargeSheetModify.cs" />
+    <Compile Include="Models\NewModels\IpdSectionModifyStructure\IpdBillingSectionModify\BedBookedClearModify.cs" />
+    <Compile Include="Models\NewModels\IpdSectionModifyStructure\IpdBillingSectionModify\BedBookingModify.cs" />
+    <Compile Include="Models\NewModels\IpdSectionModifyStructure\IpdBillingSectionModify\BedRackListModify.cs" />
+    <Compile Include="Models\NewModels\IpdSectionModifyStructure\IpdBillingSectionModify\BedTransferModify.cs" />
+    <Compile Include="Models\NewModels\IpdSectionModifyStructure\IpdBillingSectionModify\DepositModify.cs" />
+    <Compile Include="Models\NewModels\IpdSectionModifyStructure\IpdReportSectionModify\BedTransactionReportModify.cs" />
+    <Compile Include="Models\NewModels\IpdSectionModifyStructure\IpdReportSectionModify\DischargeReportModify.cs" />
+    <Compile Include="Models\NewModels\IpdSectionModifyStructure\IpdReportSectionModify\DischargeSheetReportModify.cs" />
+    <Compile Include="Models\NewModels\IpdSectionModifyStructure\IpdReportSectionModify\IpdRegistrationRegisterModify.cs" />
+    <Compile Include="Models\NewModels\IpdSectionModifyStructure\IpdSupervisionSectionModify\IpdSaveBillCancelModify.cs" />
+    <Compile Include="Models\NewModels\LedgerUpdate\LedgerUpdateSbledCode.cs" />
+    <Compile Include="Models\NewModels\LedgerUpdate\OpBalUpdate.cs" />
+    <Compile Include="Models\NewModels\Module_Tables\Member.cs" />
+    <Compile Include="Models\NewModels\OpdBill_dto.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\AccodeView.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Ac_codeAll.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\AdjLedger.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\AdjrecPurch.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\AdjVouch.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Calendar.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\CashReceiptEntry.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Challan.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\CmplistVsSup.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Config.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\CreditNote.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\CreditNoteEntry.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\CsParty.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\DebitNoteEntry.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\DiscountName.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Drafts.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Drnote.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\DrugDoses.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\DrugGenix.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\DrugRack.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\DrugRackGroup.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\EmpDept.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\ExcelRoster.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Firms.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\IcdCode.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\IcdCodeGroup.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Inpatient.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\IpdRequistion.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\MasterStockNumber.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\MedicineInstruction.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Member.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Naration.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\NepaliMonth.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\NewDrugGroup.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\OpenStockEntry.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Organiz.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\PartDisc.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\partDisc1.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\ProductDivision.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\PurchaseDet.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\PurchaseEntry.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\SalesTemplateName.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Sector.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Store.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\tempDrugGeneric.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\TempDrugGenix.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\templedger1.cs" />
+    <Compile Include="Models\NewModels\PharmaDocs\Transporter.cs" />
+    <Compile Include="Models\NewModels\RadiologyDocs\RadiologyTempDelete.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\CashRegisterSummaryModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\CreditInvoiceDueClearReportModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\DiscountReprotModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\InsuranceLiveClaimPostModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\MemberSalesRegisterModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\OpdSalesSummaryModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\OpdServiceCashDetailModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\OrganizationMemberSectionModfy\DepartmentwiseStatementModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\OrganizationMemberSectionModfy\MemberStatementModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\OrganizationMemberSectionModfy\OrganizationDepartmentSummaryModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\OrganizationMemberSectionModfy\OrganizationMemberStatementModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\OrganizationMemberSectionModfy\OrganizationStatementModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\OrganizationMemberSectionModfy\OrganizationStatementSummaryModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\OrganizationMemberSectionModfy\ServiceCenterReprotModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\OrganizationMemberSectionModfy\ServicewiseReprotModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\PatientHistoryModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\PatientRecordModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\RefererAnalysisModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\RefererPaySlipTypeBModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\RefererSummaryModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\RegistrationReportModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\SalesRegisterModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\SalesSummayModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\ServiceDivisionwiseSalesSummaryForLabModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\ServiceDivisionwiseSalesSummaryModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\ServiceGroupwiseSalesSummaryModify.cs" />
+    <Compile Include="Models\NewModels\ReportSectionModifyStructure\ServicewiseSalesSummaryModify.cs" />
+    <Compile Include="Models\NewModels\SeriesDocs\Jbook.cs" />
+    <Compile Include="Models\NewModels\SeriesDocs\VrSeries.cs" />
+    <Compile Include="Models\NewModels\Urselist_Cmplist.cs" />
+    <Compile Include="Models\NewModels\OnlineShopping\OnlineShopping.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\web.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Challan\" />
+    <Folder Include="Views\ReportSection\" />
+    <Folder Include="Views\ServGroup\" />
+    <Folder Include="Views\test\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
