@@ -6,11 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace medipro.api.Medipro.Controllers.NewController.BillingDocs.Catalogue.Organization_Member_Master
 {
     public class OrganizationDeptSetupController : ApiController
     {
+        [EnableCors(origins: "http://localhost:4200", headers: "", methods: "")]
         [HttpGet]
         [Route("api/EmpDeptList")]
         public IHttpActionResult EmpdptList(int orgid)
